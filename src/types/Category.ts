@@ -1,4 +1,3 @@
-import { Category } from '../types/Category'
 
 export type Category = {
 
