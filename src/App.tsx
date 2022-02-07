@@ -38,6 +38,7 @@ const App = () =>  {
 
   const handleMonthChange = (newMonth: string) => {
     setCurrentMonth(newMonth)
+    console.log(newMonth)
   }
 
   return (
