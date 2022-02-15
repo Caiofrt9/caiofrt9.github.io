@@ -1,12 +1,12 @@
 import { useState, useEffect} from 'react'
 import * as C from './App.styles'
 import { Item } from './types/Item'
-import { Category } from './types/Category'
 import { categories } from './data/categories'
 import { items } from './data/items'
 import { getCurrentMonth, filterListByMonth } from './helpers/dateFilters'
 import { TableArea } from './components/TableArea'
 import { InfoArea } from './components/InfoArea'
+import {InputArea} from './components/InputArea'
 
 const App = () =>  {
   const [list, setList] = useState(items)
@@ -38,7 +38,11 @@ const App = () =>  {
 
   const handleMonthChange = (newMonth: string) => {
     setCurrentMonth(newMonth)
-    console.log(newMonth)
+  }
+  const handleAddItem = (item: Item) => {
+    let newList = {...list}
+    newList.push(item)
+    setList(newList)
   }
 
   return (
@@ -56,7 +60,9 @@ const App = () =>  {
        income={income}
        expense={expense}/>
 
-       {/*Área de Inserção*/ }
+       <InputArea onAdd={handleAddItem}/>
+
+
        {/* MINUTO 58:15 */}
        <TableArea list={filteredList}/>
 
