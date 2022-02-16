@@ -40,7 +40,7 @@ const App = () =>  {
     setCurrentMonth(newMonth)
   }
   const handleAddItem = (item: Item) => {
-    let newList = {...list}
+    let newList = [...list]
     newList.push(item)
     setList(newList)
   }
